@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  funclub:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: funclub
+    restart: unless-stopped
+    networks:
+      - reverse-proxy
+    expose:
+      - 80
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.funclub.entryPoints=https
+      - traefik.http.routers.funclub.rule=Host(`${DOMAIN}`)
+    environment:
+      - TZ=${TZ}
+
+networks:
+  reverse-proxy:
+    external: true
