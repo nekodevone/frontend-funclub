@@ -1,0 +1,39 @@
+.header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 100vh;
+    color: white;
+    padding-top: 20px;
+}
+.header_face {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+    margin: auto 0;
+}
+.logo {
+    font-size: 100px;
+    font-weight: 350;
+}
+.button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 5px 0 5px;
+    background: white;
+    cursor: pointer;
+}
+.button_text {
+    font-weight: bold;
+    color: black;
+}
+.button_menu {
+    display: flex;
+    gap: 40px;
+    color: white;
+}
+.list {
+    display: flex;
+    gap: 40px;
+}
