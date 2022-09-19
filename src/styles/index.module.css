@@ -5,6 +5,7 @@
   color: white;
   padding-top: 20px;
 }
+
 .header_face {
   display: flex;
   flex-direction: column;
@@ -12,10 +13,12 @@
   align-items: flex-start;
   margin: auto 0;
 }
+
 .logo {
   font-size: 100px;
   font-weight: 350;
 }
+
 .button {
   display: flex;
   align-items: center;
@@ -24,15 +27,18 @@
   background: white;
   cursor: pointer;
 }
+
 .button_text {
   font-weight: bold;
   color: black;
 }
+
 .button_menu {
   display: flex;
   gap: 40px;
   color: white;
 }
+
 .list {
   display: flex;
   gap: 40px;
