@@ -8,7 +8,7 @@ type Guild = {
   name: string
   members: number
   inviteUrl: string
-  image: string
+  imageUrl: string
 }
 
 /**
@@ -20,27 +20,27 @@ export const guilds: Guild[] = [
     name: 'FUNCLUB',
     members: 19000,
     inviteUrl: 'https://discord.gg/MQ2q4nCMYT',
-    image: mainGuildImage.src
+    imageUrl: mainGuildImage.src
   },
   {
     id: '891624095630909493',
     name: 'FUNCLUB SS13',
     members: 1000,
     inviteUrl: 'https://discord.gg/2WAsvv5B5v',
-    image: ss13GuildImage.src
+    imageUrl: ss13GuildImage.src
   },
   {
     id: '886375983786127420',
     name: 'FUNCLUB SCP:SL',
     members: 6000,
     inviteUrl: 'https://discord.gg/9VWehX3V7N',
-    image: scpslGuildImage.src
+    imageUrl: scpslGuildImage.src
   },
   {
     id: '903733187862200330',
     name: 'FUNCLUB SCP:CBM',
     members: 2000,
     inviteUrl: 'https://discord.gg/ZFPq2PXKTA',
-    image: scpcbmGuildImage.src
+    imageUrl: scpcbmGuildImage.src
   }
 ]

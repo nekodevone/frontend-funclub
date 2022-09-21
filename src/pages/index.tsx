@@ -61,7 +61,7 @@ const Index: React.FC = () => {
               name={guild.name}
               members={guild.members}
               invite={guild.inviteUrl}
-              image={guild.image}
+              image={guild.imageUrl}
             />
           ))}
         </div>
