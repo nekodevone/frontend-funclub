@@ -11,6 +11,9 @@ type Guild = {
   image: string
 }
 
+/**
+ * Список наших серверов
+ */
 export const guilds: Guild[] = [
   {
     id: '433622753350778890',
