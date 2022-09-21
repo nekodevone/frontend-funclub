@@ -51,13 +51,15 @@ const guilds: Guild[] = [
 
 const Index: React.FC = () => {
   return (
-    <Layout>
+    <Layout className={styles.layout}>
       <header className={styles.header}>
         <nav className={styles.header__nav}>
-          <div className={styles.header__logo}>FUNCLUB</div>
+          <Link href="/">
+            <a className={styles.header__logo}>FUNCLUB</a>
+          </Link>
           <ul className={styles['header__nav-links']}>
             <li>
-              <Link href="/donate" passHref>
+              <Link href="/donate">
                 <a
                   className={clsx(
                     styles.header__link,
@@ -69,17 +71,17 @@ const Index: React.FC = () => {
               </Link>
             </li>
             <li>
-              <Link href="https://station13.ru/" passHref>
+              <Link href="https://station13.ru/">
                 <a className={styles.header__link}>🚀 SS13</a>
               </Link>
             </li>
             <li>
-              <Link href="https://hardrp.wordpress.com/" passHref>
+              <Link href="https://hardrp.wordpress.com/">
                 <a className={styles.header__link}>🐸 Hard RP</a>
               </Link>
             </li>
             <li>
-              <Link href="https://funclubfrp.wordpress.com/" passHref>
+              <Link href="https://funclubfrp.wordpress.com/">
                 <a className={styles.header__link}> 💀 Full RP</a>
               </Link>
             </li>
