@@ -1,10 +1,19 @@
 @import 'modern-normalize';
 
-body {
-  font: 400 16px 'Nunito', Roboto, -apple-system, BlinkMacSystemFont, Arial,
-    sans-serif;
+:root {
+  --blue: #5461f2;
+  --green: #54f286;
+  --yellow: #fee348;
+  --warm-yellow: #ffce48;
+  --red: #ec3235;
+  --white: #f5f5f5;
+  --black: #0a0a0a;
+}
 
-  background-color: #0e0e0e;
+body {
+  font: 400 16px 'Nunito', Roboto, sans-serif;
+
+  background-color: var(--black);
   background-image: url('../assets/images/background.jpg');
   background-size: cover;
   background-attachment: fixed;

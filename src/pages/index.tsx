@@ -56,13 +56,7 @@ const Index: React.FC = () => {
         </div>
         <div className={styles.hero__servers}>
           {guilds.map((guild) => (
-            <DiscordCard
-              key={guild.id}
-              name={guild.name}
-              members={guild.members}
-              invite={guild.inviteUrl}
-              image={guild.imageUrl}
-            />
+            <DiscordCard key={guild.id} guild={guild} />
           ))}
         </div>
       </main>

@@ -16,7 +16,7 @@
 .header__logo {
   font-size: 28px;
   font-weight: 700;
-  color: #fff;
+  color: var(--white);
   text-decoration: none;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .header__link {
-  color: #fff;
+  color: var(--white);
   text-decoration: none;
   text-transform: uppercase;
   transition: opacity 0.15s;
@@ -52,7 +52,7 @@
 }
 
 .header__link_shop {
-  color: #ffce48;
+  color: var(--warm-yellow);
 }
 
 /*
@@ -79,7 +79,7 @@
   max-width: 600px;
   display: flex;
   flex-direction: column;
-  color: #fff;
+  color: var(--white);
 }
 
 .hero__heading h1 {

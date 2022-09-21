@@ -3,7 +3,7 @@ import scpcbmGuildImage from '@/assets/images/guilds/scp-cbm.png'
 import scpslGuildImage from '@/assets/images/guilds/scp-sl.png'
 import ss13GuildImage from '@/assets/images/guilds/ss13.png'
 
-type Guild = {
+export type Guild = {
   id: string
   name: string
   members: number

@@ -1,1 +1,0 @@
-export { declension } from './declension'
