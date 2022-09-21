@@ -12,6 +12,19 @@ type Guild = {
 }
 
 /**
+ * Ссылки для переадресации
+ */
+export const redirectLinks: Record<string, string> = {
+  // Все донаты
+  donate:
+    'https://docs.google.com/document/d/1UXNTbQmOncB2Cd-X0ld6mjF4iSySNWAEmm9rtTFW5Qk/edit',
+  // Донаты SCP:SL
+  buy: 'https://docs.google.com/document/d/1kuLrLCTu4NLXZIFYY3OO-EEedQDKAROizsnjbLpDTos/edit',
+  // Discord
+  discord: 'https://discord.com/invite/MQ2q4nCMYT'
+}
+
+/**
  * Список наших серверов
  */
 export const guilds: Guild[] = [
