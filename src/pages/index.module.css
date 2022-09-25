@@ -2,22 +2,19 @@
 #region Header
 */
 
-.layout {
-  --header-height: 140px;
-}
-
 .header {
   width: 100%;
   height: var(--header-height);
   display: flex;
   align-items: center;
+  padding-top: 40px;
 }
 
 .header__logo {
   font-size: 28px;
   font-weight: 700;
   color: var(--white);
-  text-decoration: none;
+  
 }
 
 .header__nav {
@@ -34,17 +31,21 @@
   display: flex;
   justify-content: space-between;
   padding: 0;
-  list-style: none;
 }
 
+.header__nav-links li {
+  position: relative;
+  z-index: 2;
+}
 .header__link {
   color: var(--white);
-  text-decoration: none;
   text-transform: uppercase;
   transition: opacity 0.15s;
   font-size: 22px;
   letter-spacing: 0.4px;
   font-weight: 600;
+  margin: 0;
+  cursor: pointer;
 }
 
 .header__link:hover {
@@ -53,6 +54,11 @@
 
 .header__link_shop {
   color: var(--warm-yellow);
+}
+
+.svg {
+  display: none;
+  cursor: pointer;
 }
 
 /*
@@ -108,3 +114,45 @@
 /*
 #endregion Hero
 */
+
+/*
+#burgerMenu
+*/
+
+/*
+#endburgerMenu
+*/
+
+/*
+#media Screen
+*/
+@media (max-width: 960px) {
+  .header__nav-links {
+    display: none;
+  }
+  .svg {
+    display: block;
+  }
+}
+@media (max-width: 700px) {
+  .hero__heading h1 {
+    font-size: 52px;
+  }
+  .hero__servers {
+    justify-content: center;
+    gap: 20px;
+  }
+}
+@media (max-width: 520px) {
+  .hero__heading h1 {
+    font-size: 42px;
+  }
+}
+@media (max-width: 410px) {
+  .hero__heading h1 {
+    font-size: 32px;
+  }
+  .hero__heading p {
+    font-size: 15px;
+  }
+}

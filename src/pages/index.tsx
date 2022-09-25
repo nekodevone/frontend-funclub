@@ -1,15 +1,21 @@
 import clsx from 'clsx'
 import Link from 'next/link'
 
-import { DiscordCard } from '@/components/discord-card'
+import { DiscordCard } from '@/components/discord-card/discord-card'
 import { Layout } from '@/components/layout'
-import { guilds } from '@/constants'
+import { guilds} from '@/constants'
 
 import styles from './index.module.css'
+import { useState } from 'react'
+import List from '@/components/list/list'
+import BurgerMenu from '@/components/burgerMenu/burgerMenu'
 
 const Index: React.FC = () => {
+  const [burger, setBurger] = useState<boolean>(false)
+
   return (
-    <Layout className={styles.layout}>
+    <Layout>
+      {burger && <BurgerMenu burger={burger} setBurger={setBurger}/>}
       <header className={styles.header}>
         <nav className={styles.header__nav}>
           <Link href="/">
@@ -43,7 +49,9 @@ const Index: React.FC = () => {
                 <a className={styles.header__link}> 💀 Full RP</a>
               </Link>
             </li>
+            <List/>
           </ul>
+          {!burger && <svg onClick={() => { setBurger(true) }}  className={styles.svg} xmlns="http://www.w3.org/2000/svg" width="30px" height="25px" viewBox="0 0 30 25" fill="white"><defs></defs><g id="Слой_2" data-name="Слой 2"><g id="Слой_1-2" data-name="Слой 1"><rect width="30" height="5" rx="2" /><rect y="10" width="30" height="5" rx="2" /><rect y="20" width="30" height="5" rx="2" /></g></g></svg> }
         </nav>
       </header>
       <main className={styles.hero}>
