@@ -1,33 +1,35 @@
-import { rules } from "@/constants";
-import Link from "next/link";
-import React, { useRef, useEffect, useState } from "react";
-import styles from "./list.module.css"
+import Link from 'next/link'
+import React, { useEffect, useRef, useState } from 'react'
+
+import { rules } from '@/constants'
+
+import styles from './list.module.css'
 
 export const List: React.FC= () => {
     const listElemenet = useRef<any>(null)
     const [list, setList] = useState<boolean>(false)
-    const click = (e: MouseEvent ) => { 
+    const click = (e: MouseEvent ) => {
         if (list && !listElemenet.current.contains(e.target)) setList(false)
     }
-    useEffect(() => {   
+    useEffect(() => {
         document.addEventListener("click", click);
         return () => {
             document.removeEventListener("click", click);
         };
     }, [list, listElemenet]);
-    
+
     return (
         <li ref={listElemenet}>
             <p className={styles.header__link} onClick={() => setList(!list)}>📄 Правила</p>
             {list && <div className={styles.list}>
                 {rules.map((e) =>
-                    <div key={e.id}>
-                        <p>{e.ListRuls}</p>
+                    <div key={e.category}>
+                        <p>{e.category}</p>
                         <ul>
-                            {e.server.map((e)=> 
-                                <Link key={e.id} href={e.url}>
+                            {e.servers.map((e)=>
+                                <Link key={e.name} href={e.link}>
                                     <li>
-                                        {e.ServerName}
+                                        {e.name}
                                     </li>
                                 </Link>
                             )}

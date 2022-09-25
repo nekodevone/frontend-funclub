@@ -2,7 +2,6 @@ import mainGuildImage from '@/assets/images/guilds/main.png'
 import scpcbmGuildImage from '@/assets/images/guilds/scp-cbm.png'
 import scpslGuildImage from '@/assets/images/guilds/scp-sl.png'
 import ss13GuildImage from '@/assets/images/guilds/ss13.png'
-import { AriaAttributes } from 'react'
 
 export type Guild = {
   id: string
@@ -11,11 +10,17 @@ export type Guild = {
   inviteUrl: string
   imageUrl: string
 }
-export type Rules = {
-  id: number
-  ListRuls: string
-  server: any[]
+
+export type Rule = {
+  category: string
+  servers: RuleServer[]
 }
+
+export type RuleServer = {
+  name: string
+  link: string
+}
+
 /**
  * Ссылки для переадресации
  */
@@ -64,21 +69,52 @@ export const guilds: Guild[] = [
 ]
 
 // Эксопрт Правил
-export const rules: Rules[] = [
-  {id: 23, ListRuls: "SS13", server: [
-    {id: 21321321321, ServerName: "SS13 rule", url: "https://wiki.station13.ru/Rules"},
-  ]},
-  {id: 2323, ListRuls: "SCP:SL", server: [
-    {id: 4, ServerName: "CAOTIC / HELL", url: "https://docs.google.com/document/d/1M8WZAWPVqHUwp9jIKpvM8WTib-ZwJyTqFfuLmemSjKg/edit"},
-    {id: 2, ServerName: "LIGTH RP",  url: "https://docs.google.com/document/d/1Z3-SddIOMDoLUNCVajfh6yViA6EGIEsdsjiZ8-wPKhQ/edit#"},
-    {id: 1, ServerName: "MEDIUM RP", url: "https://docs.google.com/document/d/1vcDZfZIsIc4CPWwgoEzdiY29Jk1imJ58AOhYcfcZg2I/edit#heading=h.lrrrcktzkkc3"},
-    {id: 3, ServerName: "HARD RP", url: "https://hardrp.wordpress.com/category/%d0%bf%d1%80%d0%b0%d0%b2%d0%b8%d0%bb%d0%b0-%d0%bf%d1%80%d0%be%d0%b5%d0%ba%d1%82%d0%b0/"},
-    {id: 5, ServerName: "FULL RP", url: "https://funclubfrp.wordpress.com/not-rules/"},
-  ]
+export const rules: Rule[] = [
+  {
+    category: 'SS13',
+    servers: [
+      {
+        name: 'White',
+        link: 'https://wiki.station13.ru/Rules'
+      }
+    ]
   },
-  {id: 262, ListRuls: "SCP:CB", server: [
-    {id: 1324, ServerName: "MEDIUM RP", url: "https://docs.google.com/document/d/1QrIvg1v4_SqqGFc6exhqWpcYE5BUMa0fizo9vNbaCQk/edit?sharingaction=ownershiptransfer"},
-    {id: 124, ServerName: "SOFT RP", url: "https://docs.google.com/document/d/1G7_OLkTAJXTa4kwLehPinwXkTYJtXgJTJzWoa7TlAA0/edit"},
-  ]
-}
+  {
+    category: 'SCP:SL',
+    servers: [
+      {
+        name: 'Chaotic / Hell',
+        link: 'https://docs.google.com/document/d/1M8WZAWPVqHUwp9jIKpvM8WTib-ZwJyTqFfuLmemSjKg/edit'
+      },
+      {
+        name: 'Light RP',
+        link: 'https://docs.google.com/document/d/1Z3-SddIOMDoLUNCVajfh6yViA6EGIEsdsjiZ8-wPKhQ/edit#'
+      },
+      {
+        name: 'Medium RP',
+        link: 'https://docs.google.com/document/d/1vcDZfZIsIc4CPWwgoEzdiY29Jk1imJ58AOhYcfcZg2I/edit#heading=h.lrrrcktzkkc3'
+      },
+      {
+        name: 'Hard RP',
+        link: 'https://hardrp.wordpress.com/category/%d0%bf%d1%80%d0%b0%d0%b2%d0%b8%d0%bb%d0%b0-%d0%bf%d1%80%d0%be%d0%b5%d0%ba%d1%82%d0%b0/'
+      },
+      {
+        name: 'Full RP',
+        link: 'https://funclubfrp.wordpress.com/not-rules/'
+      }
+    ]
+  },
+  {
+    category: 'SCP:CB',
+    servers: [
+      {
+        name: 'Medium RP',
+        link: 'https://docs.google.com/document/d/1QrIvg1v4_SqqGFc6exhqWpcYE5BUMa0fizo9vNbaCQk/edit?sharingaction=ownershiptransfer'
+      },
+      {
+        name: 'Soft RP',
+        link: 'https://docs.google.com/document/d/1G7_OLkTAJXTa4kwLehPinwXkTYJtXgJTJzWoa7TlAA0/edit'
+      }
+    ]
+  }
 ]

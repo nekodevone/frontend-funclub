@@ -1,12 +1,14 @@
-import React, { useState, useRef, useEffect } from "react";
-import styles from "./burgerMenu.module.css"
-import { rules } from "@/constants";
-import Link from "next/link";
+import Link from 'next/link'
+import React, { useEffect, useRef, useState } from 'react'
+
+import { rules } from '@/constants'
+
+import styles from './burgerMenu.module.css'
 
 export const BurgerMenu: React.FC<any> = ({setBurger }) => {
     const [burgerList, setBurgerList] = useState<boolean>(false)
     const burgerElemenet = useRef<any>(null)
-    
+
     return (
         <div className={styles.burger__module} ref={burgerElemenet}>
             <div>
@@ -39,12 +41,12 @@ export const BurgerMenu: React.FC<any> = ({setBurger }) => {
                 {burgerList && (
                     <div className={styles.burger_list}>
                         {rules.map((e) =>
-                            <div key={e.id}>
-                                <p>{e.ListRuls}</p>
+                            <div key={e.category}>
+                                <p>{e.category}</p>
                                 <ul>
-                                    {e.server.map((e) => 
-                                        <Link key={e.id} href={e.url}>
-                                            <li>{e.ServerName}</li>
+                                    {e.servers.map((e) =>
+                                        <Link key={e.name} href={e.link}>
+                                            <li>{e.name}</li>
                                         </Link>
                                     )}
                                 </ul>
