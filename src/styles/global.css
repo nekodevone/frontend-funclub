@@ -21,12 +21,7 @@ a {
 
 body {
   font: 400 16px 'Nunito', Roboto, sans-serif;
-
   background-color: var(--black);
-  background-image: url('../assets/images/background.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
 }
 
 body::-webkit-scrollbar {
