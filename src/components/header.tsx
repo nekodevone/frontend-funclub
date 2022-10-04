@@ -3,10 +3,10 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 import Dropdown from '@/components/dropdown'
-
-import BurgerMenu from './burgerMenu/burgerMenu'
 import styles from './header.module.css'
-
+import HamburgerSVG from './svg/hamburgerSVG'
+import Portal from './portal'
+import HamburgerMenu from './hamburgerMenu/hamburgerMenu'
 export interface IHeaderProps {
   className?: string
 }
@@ -14,12 +14,13 @@ export interface IHeaderProps {
 export const Header: React.FC<IHeaderProps> = ({ className }) => {
   const [hamburgerOpen, toggleHamburger] = useState<boolean>(false)
   const [dropdownOpen, toggleDropdown] = useState<boolean>(false)
+  if (hamburgerOpen) document.querySelector("body")?.classList.add(styles.disabled);
 
   return (
     <header className={clsx(styles.header, className)}>
-      {hamburgerOpen && (
-        <BurgerMenu burger={hamburgerOpen} setBurger={toggleHamburger} />
-      )}
+      <Portal selector="#modal">
+        {hamburgerOpen && <HamburgerMenu openObject={hamburgerOpen} setOpenObject={toggleHamburger}/>}
+      </Portal>
       <nav className={styles.header__nav}>
         <Link href="/">
           <a className={styles.header__logo}>FUNCLUB</a>
@@ -52,35 +53,16 @@ export const Header: React.FC<IHeaderProps> = ({ className }) => {
           <li>
             <p
               className={styles.header__link}
-              onClick={() => toggleDropdown(true)}
+              onClick={() => dropdownOpen?toggleDropdown(false):toggleDropdown(true)}
+              data-dropdown
+              onMouseOver={() => toggleDropdown(true)}
             >
               📄 Правила
             </p>
-            <Dropdown open={dropdownOpen} onToggle={toggleDropdown} />
+            {dropdownOpen && <Dropdown open={dropdownOpen} onToggle={toggleDropdown} />}
           </li>
         </ul>
-        {!hamburgerOpen && (
-          <svg
-            onClick={() => {
-              toggleHamburger(true)
-            }}
-            className={styles.svg}
-            xmlns="http://www.w3.org/2000/svg"
-            width="30px"
-            height="25px"
-            viewBox="0 0 30 25"
-            fill="white"
-          >
-            <defs></defs>
-            <g id="Слой_2" data-name="Слой 2">
-              <g id="Слой_1-2" data-name="Слой 1">
-                <rect width="30" height="5" rx="2" />
-                <rect y="10" width="30" height="5" rx="2" />
-                <rect y="20" width="30" height="5" rx="2" />
-              </g>
-            </g>
-          </svg>
-        )}
+        {!hamburgerOpen && <HamburgerSVG openObject={hamburgerOpen} setOpenObject={toggleHamburger}/> }
       </nav>
     </header>
   )

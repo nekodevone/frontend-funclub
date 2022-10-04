@@ -32,6 +32,7 @@ export const Document: React.FC<DocumentProps> = () => {
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
       <body>
+        <div id="modal"></div>
         <Main />
         <NextScript />
       </body>

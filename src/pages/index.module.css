@@ -49,24 +49,9 @@
 */
 
 /*
-#burgerMenu
-*/
-
-/*
-#endburgerMenu
-*/
-
-/*
 #media Screen
 */
-@media (max-width: 960px) {
-  .header__nav-links {
-    display: none;
-  }
-  .svg {
-    display: block;
-  }
-}
+
 @media (max-width: 700px) {
   .hero__heading h1 {
     font-size: 52px;
