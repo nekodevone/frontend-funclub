@@ -59,3 +59,27 @@
         display: flex;
     }
 }
+
+@media (max-width: 425px) {
+    .burger__module svg {
+        margin-right: 10px;
+    }
+}
+
+@media (min-width: 425px) and (max-width: 768px) {
+    .burger__module svg {
+        margin-right: 20px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .burger__module svg {
+        margin-right: 40px;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .burger__module svg {
+        margin-right: 60px;
+    }
+}
