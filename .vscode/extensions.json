@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "mike-co.import-sorter",
+    "naumovs.color-highlight",
+    "jock.svg",
+    "Arjun.swagger-viewer"
+  ]
+}
