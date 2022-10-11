@@ -1,20 +1,22 @@
-import clsx from 'clsx'
-import Link from 'next/link'
-import React, { useEffect, useRef, useState } from 'react'
 
+import Link from 'next/link'
+import React, { useEffect, useRef } from 'react'
 import { rules } from '@/constants'
 import styles  from './dropdown.module.css'
+import { animated } from 'react-spring'
 
 
 export interface IDropdownProps {
   open: boolean
   onToggle: (state: boolean) => void
+  style: object
 }
 
 
 
-export const Dropdown: React.FC<IDropdownProps> = ({ open, onToggle }) => {
+export const Dropdown: React.FC<IDropdownProps> = ({ open, onToggle, style }) => {
   const listRef = useRef<any>(null)
+  
 
   useEffect(() => {
     const onClick = (e: any) => {
@@ -33,7 +35,7 @@ export const Dropdown: React.FC<IDropdownProps> = ({ open, onToggle }) => {
   }, [open, listRef])
   
   return (
-    <div ref={listRef} className={styles.dropdown}>
+    <animated.div ref={listRef} style={style} className={styles.dropdown}>
       {rules.map((e)=> (
         <div key={e.category} >
           <p>{e.category}</p>
@@ -47,7 +49,7 @@ export const Dropdown: React.FC<IDropdownProps> = ({ open, onToggle }) => {
         </div>
       ))
       }
-    </div>
+    </animated.div>
   )
 }
 

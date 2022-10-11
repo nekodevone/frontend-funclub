@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import Link from 'next/link'
 import { useState } from 'react'
-
+import { useTransition } from 'react-spring'
 import Dropdown from '@/components/dropdown'
 import styles from './header.module.css'
 import HamburgerSVG from './svg/hamburgerSVG'
@@ -14,12 +14,41 @@ export interface IHeaderProps {
 export const Header: React.FC<IHeaderProps> = ({ className }) => {
   const [hamburgerOpen, toggleHamburger] = useState<boolean>(false)
   const [dropdownOpen, toggleDropdown] = useState<boolean>(false)
-  if (hamburgerOpen) document.querySelector("body")?.classList.add(styles.disabled);
-
+  
+  const dropdownAnimate = useTransition(dropdownOpen, {
+    from: {
+      x: -50,
+      opacity: 0,
+    },
+    enter: {
+      x: 0,
+      opacity: 1,
+    },
+    leave: {
+      x: -50,
+      opacity: 0,
+    },
+  })  
+  const hamburgerAnimate = useTransition(hamburgerOpen, {
+    from: {
+      x: 200,
+      opacity: 0,
+    },
+    enter: {
+      x: 0,
+      opacity: 1,
+    },
+    leave: {
+      x: 200,
+      opacity: 0,
+    },
+  }) 
   return (
     <header className={clsx(styles.header, className)}>
       <Portal selector="#modal">
-        {hamburgerOpen && <HamburgerMenu openObject={hamburgerOpen} setOpenObject={toggleHamburger}/>}
+        {hamburgerAnimate((style, hamburgerOpen) => 
+            hamburgerOpen && <HamburgerMenu style={style} openObject={hamburgerOpen} setOpenObject={toggleHamburger}/>
+        )}
       </Portal>
       <nav className={styles.header__nav}>
         <Link href="/">
@@ -58,8 +87,10 @@ export const Header: React.FC<IHeaderProps> = ({ className }) => {
               onMouseOver={() => toggleDropdown(true)}
             >
               📄 Правила
-            </p>
-            {dropdownOpen && <Dropdown open={dropdownOpen} onToggle={toggleDropdown} />}
+            </p>  
+            {dropdownAnimate((style, dropdownOpen) => 
+                dropdownOpen && <Dropdown style={style} open={dropdownOpen} onToggle={toggleDropdown} />
+            )}
           </li>
         </ul>
         {!hamburgerOpen && <HamburgerSVG openObject={hamburgerOpen} setOpenObject={toggleHamburger}/> }

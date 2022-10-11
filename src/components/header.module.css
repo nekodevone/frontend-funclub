@@ -56,11 +56,6 @@
   display: none;
   cursor: pointer;
 }
-
-.disabled {
-  overflow: hidden;
-}
-
 @media (max-width: 960px) {
   .header__nav-links {
     display: none;

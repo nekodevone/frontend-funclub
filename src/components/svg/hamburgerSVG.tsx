@@ -6,6 +6,7 @@ export interface HamburgerSVGBlock {
 }
 
 export const HamburgerSVG: React.FC<HamburgerSVGBlock> = ({openObject, setOpenObject}) => {
+    
     return (
         <svg
             onClick={()=> openObject?setOpenObject(false):setOpenObject(true)}
