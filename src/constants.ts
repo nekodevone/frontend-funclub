@@ -31,28 +31,28 @@ export const guilds: Guild[] = [
   {
     id: '433622753350778890',
     name: 'FUNCLUB',
-    members: 19000,
+    members: 18500,
     inviteUrl: 'https://discord.gg/MQ2q4nCMYT',
     imageUrl: mainGuildImage.src
   },
   {
     id: '891624095630909493',
     name: 'FUNCLUB SS13',
-    members: 1000,
+    members: 2600,
     inviteUrl: 'https://discord.gg/2WAsvv5B5v',
     imageUrl: ss13GuildImage.src
   },
   {
     id: '886375983786127420',
     name: 'FUNCLUB SCP:SL',
-    members: 6000,
+    members: 7500,
     inviteUrl: 'https://discord.gg/9VWehX3V7N',
     imageUrl: scpslGuildImage.src
   },
   {
     id: '903733187862200330',
     name: 'FUNCLUB SCP:CBM',
-    members: 2000,
+    members: 2300,
     inviteUrl: 'https://discord.gg/ZFPq2PXKTA',
     imageUrl: scpcbmGuildImage.src
   }
