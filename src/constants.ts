@@ -37,7 +37,7 @@ export const guilds: Guild[] = [
   },
   {
     id: '891624095630909493',
-    name: 'FUNCLUB SS13',
+    name: 'FUNCLUB SS13/SS14',
     members: 5400,
     inviteUrl: 'https://discord.gg/2WAsvv5B5v',
     imageUrl: ss13GuildImage.src
