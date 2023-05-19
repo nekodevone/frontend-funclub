@@ -54,11 +54,11 @@ export const DiscordCard: React.FC<IDiscordCardProps> = ({
       />
       <div className={styles.card__name}>{guild.name}</div>
       <div className={styles.card__members}>
-        <span>
+        <span title={`Не меньше ${guild.members}`}>
           {membersCount}K{' '}
           {declension(membersCount, 'участник', 'участника', 'участников')}
         </span>
-        <span>&nbsp;&middot;&nbsp;{presenceCount} в сети</span>
+        <span title={String(widgetInfo?.presence_count ?? 0)}>&nbsp;&middot;&nbsp;{presenceCount} в сети</span>
       </div>
       <a className={styles.card__button} href={guild.inviteUrl} target="_blank">
         Вступить
