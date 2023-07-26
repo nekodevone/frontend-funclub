@@ -1,23 +1,23 @@
 version: '3.8'
 
 services:
-  funclub:
+  frontend-funclub:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: funclub
+    container_name: frontend-funclub
     restart: unless-stopped
     networks:
-      - reverse-proxy
+      - edge
     expose:
       - 80
     labels:
       - traefik.enable=true
-      - traefik.http.routers.funclub.entryPoints=https
-      - traefik.http.routers.funclub.rule=Host(`${DOMAIN}`)
+      - traefik.http.routers.frontend-funclub.entryPoints=https
+      - traefik.http.routers.frontend-funclub.rule=Host(`${DOMAIN}`)
     environment:
       - TZ=${TZ}
 
 networks:
-  reverse-proxy:
+  edge:
     external: true
