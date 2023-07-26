@@ -38,11 +38,6 @@ const Index: React.FC = () => {
                 <a className={styles.header__link}>🐸 Hard RP</a>
               </Link>
             </li>
-            <li>
-              <Link href="https://funclubfrp.wordpress.com/">
-                <a className={styles.header__link}> 💀 Full RP</a>
-              </Link>
-            </li>
           </ul>
         </nav>
       </header>
