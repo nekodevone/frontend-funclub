@@ -1,5 +1,4 @@
 import { DocumentProps, Head, Html, Main, NextScript } from 'next/document'
-import Script from 'next/script'
 
 export const Document: React.FC<DocumentProps> = () => {
   return (
@@ -35,16 +34,6 @@ export const Document: React.FC<DocumentProps> = () => {
       <body>
         <Main />
         <NextScript />
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-18SQLXWR6J" />
-        <Script id="google-analytics">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-    
-            gtag('config', 'G-18SQLXWR6J');
-          `}
-        </Script>
       </body>
     </Html>
   )
