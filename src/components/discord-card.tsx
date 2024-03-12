@@ -1,66 +1,36 @@
 import clsx from 'clsx'
-import React, { useEffect, useState } from 'react'
 
-import { Guild } from '@/constants'
+import { IDiscordGuild, IDiscordWidgetInfo } from '@/types'
 import { declension } from '@/utils/declension'
 
-import styles from './discord-card.module.css'
-
-type WidgetInfo = {
-  id: string
-  name: string
-  instant_invite: string
-  presence_count: number
-}
+import classes from './discord-card.module.css'
 
 export interface IDiscordCardProps {
   className?: string
-  guild: Guild
+  guild: IDiscordGuild
+  widget: IDiscordWidgetInfo
 }
 
-export const DiscordCard: React.FC<IDiscordCardProps> = ({
-  className,
-  guild
-}) => {
-  const [widgetInfo, setWidgetInfo] = useState<WidgetInfo>()
-
-  useEffect(() => {
-    const abortController = new AbortController()
-
-    // prettier-ignore
-    fetch(`https://discord.com/api/guilds/${guild.id}/widget.json`, {
-      signal: abortController.signal
-    })
-      .then((response) => response.json())
-      .then((data) => setWidgetInfo(data))
-
-    return () => {
-      abortController.abort()
-    }
-  }, [guild?.id])
-
+export async function DiscordCard({ className, guild, widget }: IDiscordCardProps) {
   const membersCount = Math.floor(guild.members / 1000)
-  const presenceCount = (widgetInfo?.presence_count ?? 0).toLocaleString('en', {
+  const presenceCount = (widget.presence_count ?? 0).toLocaleString('en', {
     notation: 'compact'
   })
 
   return (
-    <div className={clsx(styles.card, className)}>
-      <div className={styles.card__heading}>( ͡° ͜ʖ Вас пригласили на сервер</div>
-      <img
-        className={styles.card__image}
-        src={guild.imageUrl}
-        alt={guild.name}
-      />
-      <div className={styles.card__name}>{guild.name}</div>
-      <div className={styles.card__members}>
+    <div className={clsx(classes.card, className)}>
+      <div className={classes.card__heading}>( ͡° ͜ʖ Вас пригласили на сервер</div>
+      <img className={classes.card__image} src={guild.imageUrl} alt={guild.name} />
+      <div className={classes.card__name}>{guild.name}</div>
+      <div className={classes.card__members}>
         <span title={`Не меньше ${guild.members}`}>
-          {membersCount}K{' '}
-          {declension(membersCount, 'участник', 'участника', 'участников')}
+          {membersCount}K {declension(membersCount, 'участник', 'участника', 'участников')}
         </span>
-        <span title={String(widgetInfo?.presence_count ?? 0)}>&nbsp;&middot;&nbsp;{presenceCount} в сети</span>
+        <span title={String(widget.presence_count ?? 0)}>
+          &nbsp;&middot;&nbsp;{presenceCount} в сети
+        </span>
       </div>
-      <a className={styles.card__button} href={guild.inviteUrl} target="_blank">
+      <a className={classes.card__button} href={guild.inviteUrl} target="_blank">
         Вступить
       </a>
     </div>

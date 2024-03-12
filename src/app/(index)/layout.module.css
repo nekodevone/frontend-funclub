@@ -1,44 +1,47 @@
-.container {
+.layout {
+  --page-height: 100vh;
+  --header-height: 140px;
   --container-padding: 0 80px;
+  --hero-vertical-margin: 80px;
+  height: var(--page-height);
+}
+
+.layout__container {
   width: 1600px;
   margin: 0 auto;
   padding: var(--container-padding);
 }
 
-.container_fluid {
-  width: 100% !important;
-}
-
 @media (max-width: 425px) {
-  .container {
+  .layout__container {
     --container-padding: 0 10px;
     width: 100%;
   }
 }
 
 @media (min-width: 425px) and (max-width: 768px) {
-  .container {
+  .layout__container {
     --container-padding: 0 20px;
     width: 100%;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-  .container {
+  .layout__container {
     --container-padding: 0 40px;
     width: 100%;
   }
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
-  .container {
+  .layout__container {
     --container-padding: 0 60px;
     width: 1000px;
   }
 }
 
 @media (min-width: 1280px) and (max-width: 1440px) {
-  .container {
+  .layout__container {
     width: 1200px;
   }
 }

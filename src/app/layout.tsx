@@ -1,29 +1,39 @@
 import '@/styles/global.css'
 
-import { AppProps } from 'next/app'
+import { Metadata } from 'next'
 import Script from 'next/script'
-import React, { Fragment } from 'react'
+import { PropsWithChildren } from 'react'
+import { nunito } from './fonts'
 
-export const App: React.FC<AppProps> = ({ Component, pageProps }) => {
+export const metadata: Metadata = {
+  title: {
+    default: 'FUNCLUB',
+    template: '%s - FUNCLUB'
+  },
+  description: 'Самое разнообразное сообщество во Вселенной'
+}
+
+export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <Fragment>
-      <Component {...pageProps} />
+    <html lang="ru" className={nunito.variable}>
+      <body>
+        {children}
 
-      {/* Google Analytics */}
-      <Script src="https://www.googletagmanager.com/gtag/js?id=G-18SQLXWR6J" />
-      <Script id="google-analytics">
-        {`
+        {/* Google Analytics */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-18SQLXWR6J" />
+        <Script id="google-analytics">
+          {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
           gtag('config', 'G-18SQLXWR6J');
         `}
-      </Script>
+        </Script>
 
-      {/* Yandex Metrika */}
-      <Script>
-        {`
+        {/* Yandex Metrika */}
+        <Script id="yandex-metrika">
+          {`
           (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
           m[i].l=1*new Date();
           for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
@@ -36,9 +46,8 @@ export const App: React.FC<AppProps> = ({ Component, pageProps }) => {
             accurateTrackBounce:true
           });
       `}
-      </Script>
-    </Fragment>
+        </Script>
+      </body>
+    </html>
   )
 }
-
-export default App

@@ -5,7 +5,7 @@
  * @param number Число
  * @param variants Вариации слова в зависимости от числа
  */
-export const declension = (number: number, ...variants: string[]) => {
+export function declension(number: number, ...variants: string[]) {
   return variants[
     ((number %= 100), 20 > number && number > 4)
       ? 2
